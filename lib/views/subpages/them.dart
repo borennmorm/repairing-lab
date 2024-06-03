@@ -4,7 +4,14 @@ import 'package:get/get.dart';
 import '../../data/languages.dart';
 import '../../theme/theme.dart';
 
-class ThemeView extends StatelessWidget {
+class ThemeView extends StatefulWidget {
+  const ThemeView({super.key});
+
+  @override
+  State<ThemeView> createState() => _ThemeViewState();
+}
+
+class _ThemeViewState extends State<ThemeView> {
   final ThemeController _themeController = Get.put(ThemeController());
 
   @override
@@ -16,7 +23,8 @@ class ThemeView extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "themeView.themeViewTitle".tr,
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[500]),
+          style:
+              TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[500]),
         ),
         backgroundColor: Colors.grey[100],
       ),
@@ -24,12 +32,16 @@ class ThemeView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: _buildDropdown(
-          items: ['Light', 'Dark'], // No need for .tr here, just regular strings
+          items: [
+            'Light',
+            'Dark'
+          ], // No need for .tr here, just regular strings
           label: "themeView.themeViewDropdown".tr,
           onChanged: (value) {
             selectedTheme = value;
             if (value == 'Dark') {
-              _themeController.toggleTheme(); // Toggle theme if 'Dark' is selected
+              _themeController
+                  .toggleTheme(); // Toggle theme if 'Dark' is selected
             }
           },
           value: selectedTheme,

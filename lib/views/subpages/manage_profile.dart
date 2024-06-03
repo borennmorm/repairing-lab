@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../components/button.dart';
 import '../../data/languages.dart';
 
 class ManageProfileView extends StatelessWidget {
-  const ManageProfileView({Key? key});
+  const ManageProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
